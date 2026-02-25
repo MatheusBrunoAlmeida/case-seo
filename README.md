@@ -1,4 +1,4 @@
-# Case Técnico --- Fullstack (SEO Analysis, Execution & Compatibilidade de Slugs)
+# Case Técnico --- Fullstack (SEO)
 
 ## Contexto
 
