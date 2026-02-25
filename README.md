@@ -196,3 +196,14 @@ Seja objetivo e técnico.
 -   Mantenha o projeto funcionando via docker compose.
 -   Caso utilize IA, você deve ser capaz de explicar as decisões
     técnicas durante a entrevista.
+
+------------------------------------------------------------------------
+
+# Entrega no GitHub (obrigatório)
+
+Para enviar este case, o candidato deve obrigatoriamente:
+
+1. Fazer **fork** deste repositório para a própria conta no GitHub.
+2. Implementar a solução no repositório forkado.
+3. Enviar o link do fork (e, se houver, o link do Pull Request) como
+   entrega final.
