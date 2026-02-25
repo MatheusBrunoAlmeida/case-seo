@@ -3,28 +3,19 @@
 ## Contexto
 
 Você recebeu este projeto como parte de um time que está enfrentando
-queda de tráfego orgânico.
+queda de tráfego orgânico e gargalos técnicos de SEO.
 
-Recentemente, a aplicação passou por uma mudança de nomenclatura dos
-slugs dos cursos (simplificação). A **rota pública permaneceu a mesma**,
-porém alguns slugs antigos ainda estão circulando na internet e em
-bookmarks.
+Este case avalia sua capacidade de:
 
-Exemplo:
+-   Diagnóstico técnico baseado no código real
+-   Priorização de problemas com impacto
+-   Implementação de soluções com justificativa técnica
 
--   Antigo: `/curso/aprenda-react`
--   Novo: `/curso/react`
+A aplicação já está funcional, mas contém problemas intencionais para
+análise e correção.
 
-A aplicação ainda recebe alto volume de tráfego em URLs com slugs
-antigos devido a:
-
--   Links históricos
--   Indexação anterior
--   Bookmarks de usuários
--   Links externos
-
-Sua missão é analisar o projeto e propor melhorias técnicas relacionadas
-a SEO e compatibilidade de slugs.
+Ao longo do desafio, existe também um cenário específico de
+compatibilidade de slugs, detalhado na seção própria mais abaixo.
 
 ------------------------------------------------------------------------
 
@@ -52,7 +43,6 @@ Para cada problema identificado, documente:
 -   Onde está (arquivo/endpoint)
 -   Por que é um problema
 -   Impacto potencial
--   Nível de criticidade (baixo / médio / alto)
 
 ⚠️ Evite recomendações genéricas.\
 Baseie-se exclusivamente no código real deste projeto.
@@ -155,15 +145,11 @@ Esperado:
 
 Inclua um arquivo `CASE_ANALYSIS.md` contendo:
 
--   Lista de problemas identificados
--   Problema escolhido e justificativa
--   Explicação técnica da solução implementada
--   Como modelou o contrato backend → frontend
--   Estratégia adotada para compatibilidade de slugs
--   Decisões arquiteturais
--   Considerações de performance e escalabilidade
--   Trade-offs assumidos
--   Diferença entre 301 e 302 (e quando usaria 308)
+-   Quais problemas técnicos de SEO você identificou no projeto?
+-   Em qual arquivo/endpoint cada problema aparece?
+-   Por que cada ponto é um problema técnico real?
+-   Qual criticidade você atribui para cada item (baixo/médio/alto) e por
+    quê?
 
 Seja objetivo e técnico.
 
