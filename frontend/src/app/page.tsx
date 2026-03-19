@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getCourses } from "@/lib/api";
 
+// force-dynamic: backend not available at build time; fetch cache (revalidate) is still used at runtime
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const courses = await getCourses();
 

@@ -19,3 +19,13 @@ INSERT INTO courses (slug, title, description, image_url, updated_at) VALUES
   ('react', 'Curso de React', 'Aprenda os fundamentos de React para construir interfaces modernas.', 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1200&q=80', NOW()),
   ('nextjs', 'Curso de Next.js', 'Construa aplicações React com renderização híbrida usando Next.js.', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80', NOW()),
   ('java-spring', 'Curso de Java com Spring', 'Desenvolva APIs robustas com Spring Boot e Java 21.', 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1200&q=80', NOW());
+
+CREATE TABLE IF NOT EXISTS course_slug_aliases (
+  id        BIGINT AUTO_INCREMENT PRIMARY KEY,
+  old_slug  VARCHAR(100) NOT NULL UNIQUE,
+  course_id BIGINT NOT NULL,
+  CONSTRAINT fk_alias_course FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+INSERT INTO course_slug_aliases (old_slug, course_id)
+SELECT 'aprenda-react', id FROM courses WHERE slug = 'react';
