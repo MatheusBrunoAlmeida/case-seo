@@ -271,3 +271,24 @@ O mapeamento de slugs antigos para novos está no banco de dados (tabela `course
 **Extras implementados:**
 - `frontend/src/app/sitemap.ts` — sitemap dinâmico real (corrige #3)
 - `frontend/public/robots.txt` — robots com diretiva Sitemap (corrige #4)
+
+---
+
+## Parte 4 — Performance de Imagens
+
+### Problema
+
+A página de detalhe do curso usava `<img>` HTML nativo sem dimensões definidas nem lazy loading, causando Cumulative Layout Shift (CLS) e carregamento não otimizado.
+
+### Solução
+
+Substituição do `<img>` pelo componente `<Image>` do `next/image`, que fornece:
+- **Prevenção de CLS:** `width` e `height` explícitos (300×300) reservam o espaço antes do carregamento
+- **Lazy loading:** `loading="lazy"` — imagem só é carregada quando entra na viewport
+- **Otimização automática:** Next.js converte para WebP/AVIF e ajusta para o tamanho correto
+- **Configuração de domínio:** `remotePatterns` no `next.config.js` para aceitar imagens do backend
+
+### Arquivos modificados
+
+- `frontend/src/app/curso/[slug]/page.tsx` — substituição de `<img>` por `<Image>` com dimensões e lazy loading
+- `frontend/next.config.js` — adição de `remotePatterns` para o host do backend (`localhost:8080`)

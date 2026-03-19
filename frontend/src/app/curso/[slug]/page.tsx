@@ -1,5 +1,6 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getCourseBySlug, resolveSlug } from "@/lib/api";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -71,7 +72,13 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
         <section className="course-hero-right">
           <div className="course-badge-ring">
             <div className="course-badge-inner">
-              <img src={course.imageUrl} alt={course.title} />
+              <Image
+                src={course.imageUrl}
+                alt={course.title}
+                width={300}
+                height={300}
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
