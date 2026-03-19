@@ -57,8 +57,24 @@ public class CourseController {
     }
 
     @GetMapping(value = "/sitemap.xml", produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<String> getSitemapPlaceholder() {
-        String placeholder = "<urlset><url><loc>http://localhost:3000</loc></urlset>";
-        return ResponseEntity.ok(placeholder);
+    public ResponseEntity<String> getSitemap() {
+        String siteUrl = System.getenv().getOrDefault("SITE_URL", "http://localhost:3000");
+
+        StringBuilder xml = new StringBuilder();
+        xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        xml.append("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
+
+        xml.append("<url><loc>").append(siteUrl).append("/</loc></url>");
+
+        for (Course course : courseRepository.findAll()) {
+            xml.append("<url><loc>")
+               .append(siteUrl)
+               .append("/curso/")
+               .append(course.getSlug())
+               .append("</loc></url>");
+        }
+
+        xml.append("</urlset>");
+        return ResponseEntity.ok(xml.toString());
     }
 }
